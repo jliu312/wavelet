@@ -5,7 +5,7 @@ import java.util.*;
 class Handler implements URLHandler {
     // The one bit of state on the server: a number that will be manipulated by
     // various requests.
-    ArrayList<String> strings = new ArrayList<>();
+    Set<String> strings = new HashSet<>();
 
     public String handleRequest(URI url) {
         if (url.getPath().contains("/add")) {
