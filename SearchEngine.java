@@ -3,11 +3,12 @@ import java.net.URI;
 import java.util.*;
 
 class Handler implements URLHandler {
-    // The one bit of state on the server: a number that will be manipulated by
-    // various requests.
     Set<String> strings = new HashSet<>();
 
     public String handleRequest(URI url) {
+        if (url.getPath().equals("/")) {
+            return String.format("use /add?s= to add a new string to the list, /search?s= to search for all strings that contain that substring.");
+        }
         if (url.getPath().contains("/add")) {
             String[] parameters = url.getQuery().split("=");
             if (parameters[0].equals("s")) {
