@@ -11,7 +11,9 @@ class Handler implements URLHandler {
             if (parameters[0].equals("s")) {
                 str = str + parameters[1] + "\n";
             }
-        } 
+        } else {
+            return str + "\nuse /add-message?s= to add to the string";
+        }
         return str;
     }
 }
